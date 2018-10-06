@@ -12,11 +12,13 @@
 #include <avr/io.h>
 #include "Serial.h"
 
-	enum enumPhase{
-		A=1,
-		B=2,
-		C=3
-	};
+#define PWM0 OCR4A 
+#define PWM1 OCR3A
+#define PWM2 OCR4B
+#define PWM3 OCR3B
+#define PWM4 OCR4C
+#define PWM5 OCR3C
+
 	
 	enum enumMode{
 		PWM_DISABLE=0,
@@ -31,10 +33,7 @@ public:
 	~CAvrBldc();
 	void init();
 	void execute(uint16_t pwm);
-	inline void pwmMode(enumPhase channel,enumMode mode);
-	inline void enablePhase(enumPhase phase);
-	inline void disablePhase(enumPhase phase);
-	
+	inline void pwmMode(uint8_t channel,enumMode mode);
 	inline uint8_t halRead();
 
 private:

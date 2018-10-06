@@ -10,7 +10,7 @@ int main(void)
     {
 		//serial.putchar('a');
 		//serial.print("322\r\n");
-		bldc.execute(322);
+		bldc.execute(512);
     }
 }
 
