@@ -18,8 +18,9 @@ public:
 	CSerial();
 	~CSerial();
 	void init(uint32_t baudrate);
-	void putchar(char data);
+	//void putchar(char data);
 	void print(const char *data);
+	void print(char *data);
 private:
 
 }; //Serial

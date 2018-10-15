@@ -20,13 +20,21 @@ void CSerial::init(uint32_t baudrate){
 	UBRR1L= brrRegister & 0xff;
 }
 
-void CSerial::putchar(char data){
-	while ( !( UCSR1A & (1<<UDRE1))) ;
-	
-	UDR1 = data;
-}
+//void CSerial::putchar(char data){
+	//while ( !( UCSR1A & (1<<UDRE1))) ;
+	//
+	//UDR1 = data;
+//}
 
 void CSerial::print(const char *data){
+	while (*data){
+		while ( !( UCSR1A & (1<<UDRE1))) ;
+		UDR1 = *data;
+		data++;
+	}
+}
+
+void CSerial::print(char *data){
 	while (*data){
 		while ( !( UCSR1A & (1<<UDRE1))) ;
 		UDR1 = *data;
